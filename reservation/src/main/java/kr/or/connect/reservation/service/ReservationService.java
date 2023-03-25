@@ -1,7 +1,5 @@
 package kr.or.connect.reservation.service;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import kr.or.connect.reservation.dto.ReservationInfoResponse;
 import kr.or.connect.reservation.dto.ReservationParam;
 
