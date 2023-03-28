@@ -52,7 +52,7 @@ public class ImageDownloadController {
 	public void reservationUserCommentImageDownload(@PathVariable(name="reservationUserCommentImageId") int reservationUserCommentImageId, 
 																									HttpServletResponse response) {
 		
-		String fileName = commentService.getFileName(reservationUserCommentImageId);
+		String fileName = commentService.getSaveFileName(reservationUserCommentImageId);
 		int lastDotIndex = fileName.lastIndexOf(".");
 		String fileExtension = fileName.substring(lastDotIndex+1);
 		String saveFileName = ROOT_FOLDER + fileName;
