@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.connect.reservation.dao.mapper.ProductMapper">
+
+    <select id="selectProductAll" resultType="Product">
+        SELECT display_info.id AS displayInfoId,
+        display_info.place_name,
+        product.content AS productContent,
+        product.description AS productDescription,
+        product.id AS productId,
+        file_info.save_file_name AS productImageUrl
+        FROM product
+        JOIN product_image ON product_image.type='th' AND product.id=product_image.product_id
+        JOIN file_info ON file_info.id=product_image.file_id
+        JOIN display_info ON product.id=display_info.product_id
+        LIMIT #{start}, 4
+    </select>
+    
+    <select id="selectProductByCategory" resultType="Product">
+        SELECT display_info.id AS displayInfoId,
+        display_info.place_name,
+        product.content AS productContent,
+        product.description AS productDescription,
+        product.id AS productId,
+        file_info.save_file_name AS productImageUrl
+        FROM product
+        JOIN product_image ON product_image.type='th' AND product.category_id = #{categoryId} AND
+        product.id=product_image.product_id
+        JOIN file_info ON file_info.id=product_image.file_id
+        JOIN display_info ON product.id=display_info.product_id
+        LIMIT #{start}, 4
+    </select>
+
+    <select id="selectCountAll" resultType="_int">
+        SELECT count(*) AS count FROM display_info
+    </select>
+    
+    <select id="selectCountCategory" resultType="_int">
+        SELECT count(*) AS count
+        FROM display_info
+        JOIN product ON display_info.product_id = product.id
+        WHERE product.category_id = #{categoryId}
+    </select>
+    
+    <select id="selectProductImage" resultType="ProductImage">
+        SELECT product_image.product_id AS productId,
+               product_image.id AS productImageId,
+               product_image.type AS type,
+               file_info.id AS fileInfoId,
+               file_info.file_name AS fileName,
+               file_info.save_file_name AS saveFileName,
+               file_info.content_type AS contentType,
+               file_info.delete_flag AS deleteFlag,
+               file_info.create_date AS createDate,
+               file_info.modify_date AS modifyDate
+        FROM product_image
+        JOIN file_info ON product_image.file_id = file_info.id
+        WHERE product_image.product_id= #{productId} AND (product_image.type='ma' OR product_image.type='et')
+    </select>
+    
+    <select id="selectProductPrice" resultType="ProductPrice">
+        SELECT product_price.id AS productPriceId,
+               product_price.product_id AS productId,
+               product_price.price_type_name AS priceTypeName,
+               product_price.price AS price,
+               product_price.discount_rate AS discountRate,
+               product_price.create_date AS createDate,
+               product_price.modify_date AS modifyDate
+        FROM product_price
+        WHERE product_price.product_id = #{productId}
+    </select>
+    
+</mapper>
