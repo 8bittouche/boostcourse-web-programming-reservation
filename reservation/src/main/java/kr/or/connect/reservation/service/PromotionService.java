@@ -6,5 +6,5 @@ import kr.or.connect.reservation.dto.ItemsAndCountResponse;
 import kr.or.connect.reservation.dto.Promotion;
 
 public interface PromotionService {
-	ItemsAndCountResponse<List<Promotion>> getPromotions();
+	public ItemsAndCountResponse<List<Promotion>> getPromotions();
 }

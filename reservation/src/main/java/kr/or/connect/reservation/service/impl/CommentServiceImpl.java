@@ -82,12 +82,8 @@ public class CommentServiceImpl implements CommentService {
 	public String getSaveFileName(int reservationUserCommentImageId) {
 		return commentDao.selectSaveFileName(reservationUserCommentImageId);
 	}
-
-	@Override
-	public String getFileName(int reservationUserCommentImageId) {
-		return commentDao.selectFileName(reservationUserCommentImageId);
-	}
-
+	
+	
 	private boolean addComment(int productId, int reservationInfoId, String comment, int score) {
 		Comment commentDto = new Comment();
 		
