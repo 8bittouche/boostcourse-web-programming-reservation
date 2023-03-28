@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.connect.reservation.dao.mapper.CategoryMapper">
+
+    <select id="selectCategoryAll" resultType="Category">
+        SELECT count(*) as count, category.id, category.name
+        FROM category
+        JOIN product ON product.category_id = category.id
+        JOIN display_info ON display_info.product_id = product.id
+        GROUP BY category.id
+    </select>
+
+</mapper>
