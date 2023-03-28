@@ -28,7 +28,8 @@
       <link rel="stylesheet" href="css/bookinglogin.css">
    </head>
    <body class="biz  ko" >
-      
+
+
       <app>
          <toast-alert class="top_info hide booking_alert">
             <p class="top_info_txt"> <i class="fn fn-info1" aria-hidden="true"></i> <span class="_toast_alert_text"></span> </p>
