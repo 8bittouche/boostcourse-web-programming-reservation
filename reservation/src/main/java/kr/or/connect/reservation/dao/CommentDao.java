@@ -1,5 +1,6 @@
 package kr.or.connect.reservation.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -33,8 +34,9 @@ public class CommentDao {
 	}
 	
 	public int insertComment(Comment comment) {
-		comment.setCreateDate(new Date().toString());
-		comment.setModifyDate(new Date().toString());
+		SimpleDateFormat sDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		comment.setCreateDate(sDate.format(new Date()));
+		comment.setModifyDate(sDate.format(new Date()));
 
 		return commentMapper.insertComment(comment);
 	}
@@ -44,8 +46,9 @@ public class CommentDao {
 	}
 	
 	public int insertFileInfo(CommentImage commentImage) {
-		commentImage.setCreateDate(new Date().toString());
-		commentImage.setModifyDate(new Date().toString());
+		SimpleDateFormat sDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		commentImage.setCreateDate(sDate.format(new Date()));
+		commentImage.setModifyDate(sDate.format(new Date()));
 
 		return commentMapper.insertFileInfo(commentImage);
 	}
