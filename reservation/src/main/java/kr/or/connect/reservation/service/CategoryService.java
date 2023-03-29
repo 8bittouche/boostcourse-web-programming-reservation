@@ -6,5 +6,5 @@ import kr.or.connect.reservation.dto.Category;
 import kr.or.connect.reservation.dto.ItemsAndCountResponse;
 
 public interface CategoryService {
-	public ItemsAndCountResponse<List<Category>> getCategories();
+	ItemsAndCountResponse<List<Category>> getCategories();
 }
