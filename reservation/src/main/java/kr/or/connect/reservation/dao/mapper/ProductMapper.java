@@ -10,8 +10,8 @@ import java.util.List;
 
 @Mapper
 public interface ProductMapper {
-    List<Product> selectProductAll(int start);
-    List<Product> selectProductByCategory(@Param("categoryId") int categoryId, @Param("start") int start);
+    List<Product> selectProductAll(@Param("start") int start, @Param("limit") int limit);
+    List<Product> selectProductByCategory(@Param("categoryId") int categoryId, @Param("start") int start, @Param("limit") int limit);
     int selectCountAll();
     int selectCountCategory(int categoryId);
     List<ProductImage> selectProductImage(int productId);

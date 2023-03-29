@@ -16,12 +16,12 @@ public class ProductDao {
 
 	private final ProductMapper productMapper;
     
-    public List<Product> selectProductAll(int start) {
-		return productMapper.selectProductAll(start);
+    public List<Product> selectProductAll(int start, int limit) {
+		return productMapper.selectProductAll(start, limit);
     }
     
-    public List<Product> selectProductByCategory(int categoryId, int start) {
-    	return productMapper.selectProductByCategory(categoryId, start);
+    public List<Product> selectProductByCategory(int categoryId, int start, int limit) {
+    	return productMapper.selectProductByCategory(categoryId, start, limit);
     }
 
     public int selectCountAll() {
