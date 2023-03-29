@@ -1,6 +1,6 @@
 <br/>
 
-부스트코스 웹 프로그래밍 2019 에이스과정 2기 수료  
+부스트코스 웹 프로그래밍 에이스과정 2기 수료  
 프로젝트 진행과정은 [8bittouche.github.io](https://8bittouche.github.io)에 공유하였습니다.  
 <br/>
 
