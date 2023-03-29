@@ -6,5 +6,5 @@ import kr.or.connect.reservation.dto.ItemsAndCountResponse;
 import kr.or.connect.reservation.dto.Product;
 
 public interface ProductService {
-	public ItemsAndCountResponse<List<Product>> getProducts(int categoryId, int start);
+	ItemsAndCountResponse<List<Product>> getProducts(int categoryId, int start);
 }
