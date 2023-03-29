@@ -11,6 +11,8 @@ import kr.or.connect.reservation.dto.ItemsAndCountResponse;
 import kr.or.connect.reservation.dto.Product;
 import kr.or.connect.reservation.service.ProductService;
 
+import static kr.or.connect.reservation.constant.Constant.LIMIT_DISPLAY_NUM;
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -27,11 +29,11 @@ public class ProductServiceImpl implements ProductService {
 		int totalCount;
 		
 		if(categoryId == TOTAL_LIST_ID) {  
-			productList = productDao.selectProductAll(start);
+			productList = productDao.selectProductAll(start, LIMIT_DISPLAY_NUM);
 			totalCount = productDao.selectCountAll();
 		}
 		else {  
-			productList = productDao.selectProductByCategory(categoryId, start);
+			productList = productDao.selectProductByCategory(categoryId, start, LIMIT_DISPLAY_NUM);
 			totalCount = productDao.selectCountCategory(categoryId);
 		}
 		
