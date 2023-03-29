@@ -13,7 +13,7 @@
         JOIN product_image ON product_image.type='th' AND product.id=product_image.product_id
         JOIN file_info ON file_info.id=product_image.file_id
         JOIN display_info ON product.id=display_info.product_id
-        LIMIT #{start}, 4
+        LIMIT #{start}, #{limit}
     </select>
     
     <select id="selectProductByCategory" resultType="Product">
