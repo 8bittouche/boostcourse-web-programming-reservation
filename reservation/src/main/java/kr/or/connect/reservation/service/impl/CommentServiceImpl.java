@@ -1,15 +1,9 @@
 package kr.or.connect.reservation.service.impl;
 
-import static kr.or.connect.reservation.constant.Constant.ROOT_FOLDER;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.Stream;
 
 import org.slf4j.Logger;
@@ -24,16 +18,14 @@ import kr.or.connect.reservation.dto.Comment;
 import kr.or.connect.reservation.dto.CommentImage;
 import kr.or.connect.reservation.service.CommentService;
 
+import static kr.or.connect.reservation.constant.Constant.*;
 
 
 @Service
 public class CommentServiceImpl implements CommentService {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	private static final int REVIEW_MAX_LENGTH = 400;
-	private final static Set<String> POSSIBLE_FILE_EXTENSION_SET = Collections.unmodifiableSet(new HashSet<String>(Arrays.asList("png", "jpg", "jpeg")));
-	
-	
+
 	@Autowired
 	CommentDao commentDao;
 	
