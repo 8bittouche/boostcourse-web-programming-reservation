@@ -12,15 +12,14 @@ import kr.or.connect.reservation.dto.Product;
 import kr.or.connect.reservation.service.ProductService;
 
 import static kr.or.connect.reservation.constant.Constant.LIMIT_DISPLAY_NUM;
+import static kr.or.connect.reservation.constant.Constant.TOTAL_LIST_ID;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductDao productDao;
-	
-	private static final int TOTAL_LIST_ID = 0;
-	
+
 	@Override
 	@Transactional
 	public ItemsAndCountResponse<List<Product>> getProducts(int categoryId, int start) {
