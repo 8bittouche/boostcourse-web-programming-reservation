@@ -16,9 +16,13 @@ import static kr.or.connect.reservation.constant.Constant.ROOT_FOLDER;
 @Controller
 public class ImageDownloadController {
 	
+	private final CommentService commentService;
+
 	@Autowired
-	CommentService commentService;
-	
+	public ImageDownloadController(CommentService commentService) {
+		this.commentService = commentService;
+	}
+
 	@GetMapping("/download/{folderName}/{fileName:.+}")
 	public void imageDownload(@PathVariable(name="folderName") String folderName, 
 						      @PathVariable(name="fileName") String fileName, HttpServletResponse response) {

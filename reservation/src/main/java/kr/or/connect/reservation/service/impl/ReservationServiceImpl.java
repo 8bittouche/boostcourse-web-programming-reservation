@@ -23,13 +23,15 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	private final ReservationDao reservationDao;
+	private final DisplayInfoDao displayInfoDao;
+
 	@Autowired
-	private ReservationDao reservationDao;
-	
-	@Autowired
-	private DisplayInfoDao displayInfoDao;
-		
-		
+	public ReservationServiceImpl(ReservationDao reservationDao, DisplayInfoDao displayInfoDao) {
+		this.reservationDao = reservationDao;
+		this.displayInfoDao = displayInfoDao;
+	}
+
 	@Override
 	public ReservationInfoResponse getReservations(String reservationEmail) {
 		ReservationInfoResponse res = new ReservationInfoResponse();

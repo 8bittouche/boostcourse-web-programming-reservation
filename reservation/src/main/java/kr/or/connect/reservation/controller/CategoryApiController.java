@@ -13,9 +13,14 @@ import kr.or.connect.reservation.service.CategoryService;
 @RestController
 @RequestMapping(path="/api/categories")
 public class CategoryApiController {
+
+	private final CategoryService categoryService;
+
 	@Autowired
-	private CategoryService categoryService;
-	
+	public CategoryApiController(CategoryService categoryService) {
+		this.categoryService = categoryService;
+	}
+
 	@RequestMapping
 	public ItemsAndCountResponse<List<Category>> categories() {
 		return categoryService.getCategories();
