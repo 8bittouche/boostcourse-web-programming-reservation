@@ -10,5 +10,7 @@ public class Constant {
 	public static final int LIMIT_DISPLAY_NUM = 4;
 	public static final int TOTAL_LIST_ID = 0;
 	public static final int REVIEW_MAX_LENGTH = 400;
-	public final static Set<String> POSSIBLE_FILE_EXTENSION_SET = Collections.unmodifiableSet(new HashSet<String>(Arrays.asList("png", "jpg", "jpeg")));
+	public static final Set<String> POSSIBLE_FILE_EXTENSION_SET = Collections.unmodifiableSet(new HashSet<String>(Arrays.asList("png", "jpg", "jpeg")));
+	public static final int CACHE_PERIOD = 31556926;
+	public static final int MAX_UPLOAD_SIZE = 10485760; // 1024 * 1024 * 10
 }

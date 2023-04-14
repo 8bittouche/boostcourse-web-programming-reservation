@@ -15,12 +15,15 @@ import kr.or.connect.reservation.service.CategoryService;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
+	private final CategoryDao categoryDao;
+	private final ProductDao productDao;
+
 	@Autowired
-	private CategoryDao categoryDao;
-	
-	@Autowired
-	private ProductDao productDao;
-	
+	public CategoryServiceImpl(CategoryDao categoryDao, ProductDao productDao) {
+		this.categoryDao = categoryDao;
+		this.productDao = productDao;
+	}
+
 	@Override
 	@Transactional
 	public ItemsAndCountResponse<List<Category>> getCategories() {

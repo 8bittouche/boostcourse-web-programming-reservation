@@ -17,12 +17,16 @@ import kr.or.connect.reservation.service.ProductService;
 @RestController
 @RequestMapping(path="/api/products")
 public class ProductApiController {
+
+	private final ProductService productService;
+	private final DisplayInfoService displayInfoService;
+
 	@Autowired
-	private ProductService productService;
-	
-	@Autowired
-	private DisplayInfoService displayInfoService;
-	
+	public ProductApiController(ProductService productService, DisplayInfoService displayInfoService) {
+		this.productService = productService;
+		this.displayInfoService = displayInfoService;
+	}
+
 	@RequestMapping
 	public ItemsAndCountResponse<List<Product>> products(@RequestParam(name="categoryId", required=false, defaultValue="0") int categoryId,
 								 @RequestParam(name="start", required=false, defaultValue="0") int start) {

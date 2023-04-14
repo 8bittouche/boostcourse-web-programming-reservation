@@ -18,10 +18,13 @@ import kr.or.connect.reservation.service.ReservationService;
 @Controller
 public class MainController {
 	
+	private final ReservationService reservationService;
+
 	@Autowired
-	ReservationService reservationService;
-	
-	
+	public MainController(ReservationService reservationService) {
+		this.reservationService = reservationService;
+	}
+
 	@GetMapping(path="/mainpage")
 	public void mainpage() {}
 	

@@ -14,14 +14,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import kr.or.connect.reservation.interceptor.LogInterceptor;
 
+import static kr.or.connect.reservation.constant.Constant.CACHE_PERIOD;
+import static kr.or.connect.reservation.constant.Constant.MAX_UPLOAD_SIZE;
+
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"kr.or.connect.reservation.controller"})
 public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
-	
-	private static final int CACHE_PERIOD = 31556926;
-	private static final int MAX_UPLOAD_SIZE = 10485760; // 1024 * 1024 * 10
-	
+
 	@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(CACHE_PERIOD);

@@ -17,8 +17,12 @@ import static kr.or.connect.reservation.constant.Constant.TOTAL_LIST_ID;
 @Service
 public class ProductServiceImpl implements ProductService {
 
+	private final ProductDao productDao;
+
 	@Autowired
-	private ProductDao productDao;
+	public ProductServiceImpl(ProductDao productDao) {
+		this.productDao = productDao;
+	}
 
 	@Override
 	@Transactional

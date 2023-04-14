@@ -17,12 +17,16 @@ import kr.or.connect.reservation.service.ReservationService;
 @RestController
 @RequestMapping(path="/api/reservations")
 public class ReservationApiController {
+
+	private final ReservationService reservationService;
+	private final CommentService commentService;
+
 	@Autowired
-	ReservationService reservationService;
-	
-	@Autowired
-	CommentService commentService;
-	
+	public ReservationApiController(ReservationService reservationService, CommentService commentService) {
+		this.reservationService = reservationService;
+		this.commentService = commentService;
+	}
+
 	@RequestMapping
 	public ReservationInfoResponse reservations(@RequestParam(name="reservationEmail", required=true, defaultValue="0") String reservationEmail) {
 		return reservationService.getReservations(reservationEmail);
