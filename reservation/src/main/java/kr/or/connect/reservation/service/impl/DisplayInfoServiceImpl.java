@@ -21,16 +21,17 @@ import kr.or.connect.reservation.service.DisplayInfoService;
 @Service
 public class DisplayInfoServiceImpl implements DisplayInfoService {
 
+	private final DisplayInfoDao displayInfoDao;
+	private final CommentDao commentDao;
+	private final ProductDao productDao;
+
 	@Autowired
-	private DisplayInfoDao displayInfoDao;
-		
-	@Autowired
-	private CommentDao commentDao;
-	
-	@Autowired
-	private ProductDao productDao;
-	
-	
+	public DisplayInfoServiceImpl(DisplayInfoDao displayInfoDao, CommentDao commentDao, ProductDao productDao) {
+		this.displayInfoDao = displayInfoDao;
+		this.commentDao = commentDao;
+		this.productDao = productDao;
+	}
+
 	@Override
 	@Transactional
 	public DisplayInfoResponse getDisplayInfoResponse(int displayInfoId) {

@@ -26,9 +26,13 @@ public class CommentServiceImpl implements CommentService {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+	private final CommentDao commentDao;
+
 	@Autowired
-	CommentDao commentDao;
-	
+	public CommentServiceImpl(CommentDao commentDao) {
+		this.commentDao = commentDao;
+	}
+
 	@Override
 	@Transactional
 	public boolean registerCommentInfo(int productId, int reservationInfoId, String comment, int score, MultipartFile reviewImageFile) {

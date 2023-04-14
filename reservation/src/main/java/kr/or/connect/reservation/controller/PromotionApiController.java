@@ -13,9 +13,14 @@ import kr.or.connect.reservation.service.PromotionService;
 @RestController
 @RequestMapping(path="/api/promotions")
 public class PromotionApiController {
+
+	private final PromotionService promotionService;
+
 	@Autowired
-	private PromotionService promotionService;
-		
+	public PromotionApiController(PromotionService promotionService) {
+		this.promotionService = promotionService;
+	}
+
 	@RequestMapping
 	public ItemsAndCountResponse<List<Promotion>> promotions() {
 		return promotionService.getPromotions();
